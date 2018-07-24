@@ -1,0 +1,14 @@
+{
+  "name": "node-js-sample",
+  "version": "0.0.1",
+  "description": "Amazerrific to-do list",
+  "main": "server.js",
+  "scripts": {
+    "start": "node Amazerrific\\server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "mongoose": "^5.1.6"
+  }
+}

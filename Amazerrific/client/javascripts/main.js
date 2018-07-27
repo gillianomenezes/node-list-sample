@@ -65,13 +65,25 @@ var writeContent = function(todoObjects){
 var writeAddTabContent = function(){
     $('.content').empty();
     var $descriptionLabel = $('<label>').text('Descrição:');    
-    var $inputDescription = $('<input>');
+    var $inputDescription = $('<input>').attr('id','description');
     var $tagslabel = $('<label>').text('Tags:');
-    var $inputTags = $('<input>');
+    var $inputTags = $('<input>').attr('id','tags');
+    var $button = $('<button>').text('salvar');
+    $($button).click(saveData);
+
     $('.content').append($descriptionLabel);
     $('.content').append($inputDescription);
     $('.content').append($tagslabel);
     $('.content').append($inputTags);
+    $('.content').append($button);
+}
+
+var saveData = function(){
+    var todoObject = {
+        'description': $('#description').val(),
+        'tags': $('#tags').val().split(',')
+    }
+    $.post('/ToDos', todoObject);
 }
 
 $(document).ready(main);
